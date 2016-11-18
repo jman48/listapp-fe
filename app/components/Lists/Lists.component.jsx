@@ -3,6 +3,7 @@ import style from './_Lists.style.scss';
 import React from 'react';
 import ListStore from './Lists.store.js';
 import ListActions from './Lists.actions';
+import List from '../List/List.component.jsx';
 
 export default class Lists extends React.Component {
     constructor() {
@@ -30,7 +31,7 @@ export default class Lists extends React.Component {
 
     render() {
         let renderedLists = this.state.lists.map((list) => {
-            return <li key={list.name}>{list.name}</li>
+            return <List key={list.id} list={list}></List>
         });
 
         return (

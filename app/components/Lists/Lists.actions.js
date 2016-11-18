@@ -8,7 +8,7 @@ let ListActions = {
             //TODO replace with web call
             AppDispatcher.dispatch({
                 type: ListConstants.GET_LISTS,
-                lists: [{name: "Test list"}]
+                lists: [{id: 1, name: "Test list"}]
             });
         }, 1000);
     }
