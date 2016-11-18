@@ -1,0 +1,18 @@
+{
+  "name": "listapp-fe",
+  "version": "1.0.0",
+  "description": "A react.js web application to manage lists and items and sync them with the cloud",
+  "main": "app.component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "lists",
+    "items",
+    "react",
+    "cloud"
+  ],
+  "author": "John Armstrong",
+  "license": "ISC"
+}
