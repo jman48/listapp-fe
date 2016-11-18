@@ -19,8 +19,10 @@
   "dependencies": {
     "fbemitter": "^2.1.1",
     "flux": "^3.1.0",
+    "material-ui": "^0.16.4",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
