@@ -13,6 +13,13 @@ let ListActions = {
                 lists: [{id: 1, name: "Test list"}]
             });
         }, 1000);
+    },
+
+    addList(newList) {
+        AppDispatcher.dispatch({
+            type: ListConstants.ADD_LIST,
+            list: newList
+        });
     }
 };
 

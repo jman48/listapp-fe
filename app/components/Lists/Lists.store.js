@@ -23,6 +23,10 @@ ListStore.dispatchToken = AppDispatcher.register((action) => {
             lists = action.lists;
             __emitter.emit(CHANGE_EVENT);
             break;
+        case ListConstants.ADD_LIST:
+            this.list.push(action.list);
+            __emitter.emit(CHANGE_EVENT);
+            break;
     }
 });
 
