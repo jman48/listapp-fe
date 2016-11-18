@@ -5,6 +5,9 @@ import ListStore from './Lists.store.js';
 import ListActions from './Lists.actions';
 import List from '../List/List.component.jsx';
 
+/**
+ * This component will retrieve and display a collection of lists
+ */
 export default class Lists extends React.Component {
     constructor() {
         super(...arguments);
