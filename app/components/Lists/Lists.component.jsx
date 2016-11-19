@@ -19,7 +19,7 @@ export default class Lists extends React.Component {
         super(...arguments);
         this.state = {
             lists: ListStore.getState(),
-            dialogOpen: false
+            addDialogOpen: false
         };
     }
 
@@ -40,11 +40,11 @@ export default class Lists extends React.Component {
     }
 
     openDialog() {
-        this.setState({dialogOpen: true});
+        this.setState({addDialogOpen: true});
     }
 
     closeDialog() {
-        this.setState({dialogOpen: false});
+        this.setState({addDialogOpen: false});
     }
 
 
@@ -59,7 +59,7 @@ export default class Lists extends React.Component {
                     {renderedLists}
                 </List>
 
-                <AddList open={this.state.dialogOpen} onClose={this.closeDialog.bind(this)}></AddList>
+                <AddList open={this.state.addDialogOpen} onClose={this.closeDialog.bind(this)}></AddList>
 
                 <FloatingActionButton
                     className="add-button"
