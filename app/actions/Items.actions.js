@@ -4,13 +4,13 @@ import axios from 'axios';
 
 let ItemsActions = {
     /**
-     * Load all our lists from the web service
+     * Load a list from our web service
      */
-    loadItems(listId) {
+    loadList(listId) {
         axios.get(`${Constants.HOST}/lists/${listId}`).then((response) => {
             AppDispatcher.dispatch({
                 type: Constants.GET_ITEMS,
-                items: response.data
+                list: response.data
             });
         });
     }

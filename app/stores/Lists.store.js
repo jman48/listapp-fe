@@ -7,9 +7,12 @@ const CHANGE_EVENT = 'change';
 let __emitter = new EventEmitter();
 let lists = [];
 
+/**
+ * List store is used to hold all lists
+ */
 let ListsStore = {
     getState() {
-      return lists;
+        return lists;
     },
 
     addListener: (callback) => {

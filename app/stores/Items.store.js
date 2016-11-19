@@ -5,11 +5,14 @@ import Actions from '../app.constants';
 
 const CHANGE_EVENT = 'change';
 let __emitter = new EventEmitter();
-let items = [];
+let list = {items: []}; //Initialise with an empty list
 
+/**
+ * Item store is used to host 1 list and its items
+ */
 let ItemsStore = {
     getState() {
-      return items;
+      return list;
     },
 
     addListener: (callback) => {
@@ -20,7 +23,7 @@ let ItemsStore = {
 ItemsStore.dispatchToken = AppDispatcher.register((action) => {
     switch (action.type) {
         case Actions.GET_ITEMS:
-            items = action.items;
+            list = action.list;
             __emitter.emit(CHANGE_EVENT);
             break;
     }
