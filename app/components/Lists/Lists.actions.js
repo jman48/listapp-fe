@@ -20,6 +20,13 @@ let ListActions = {
             type: ListConstants.ADD_LIST,
             list: {name: newList}
         });
+    },
+
+    deleteList(list) {
+        AppDispatcher.dispatch({
+            type: ListConstants.DELETE_LIST,
+            list: list
+        });
     }
 };
 

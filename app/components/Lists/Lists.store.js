@@ -27,6 +27,11 @@ ListStore.dispatchToken = AppDispatcher.register((action) => {
             lists.push(action.list);
             __emitter.emit(CHANGE_EVENT);
             break;
+        case ListConstants.DELETE_LIST:
+            let listLocation = lists.indexOf(action.list);
+            lists.splice(listLocation, 1);
+            __emitter.emit(CHANGE_EVENT);
+            break;
     }
 });
 
