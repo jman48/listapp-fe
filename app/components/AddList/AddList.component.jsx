@@ -19,6 +19,7 @@ export default class AddList extends React.Component {
     }
 
     closeDialog() {
+        this.setState({value: ''});
         this.props.onClose();
     }
 
