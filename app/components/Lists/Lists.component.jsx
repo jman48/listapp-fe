@@ -1,8 +1,8 @@
 import style from './_Lists.style.scss';
 
 import React from 'react';
-import ListStore from './Lists.store.js';
-import ListActions from './Lists.actions';
+import ListStore from '../../stores/Lists.store.js';
+import ListActions from '../../actions/Lists.actions';
 import List from '../List/List.component.jsx';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';

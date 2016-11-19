@@ -1,5 +1,5 @@
-import AppDispatcher from '../../app.dispatcher.js';
-import ListConstants from '../../app.constants.js';
+import AppDispatcher from '../app.dispatcher.js';
+import ListConstants from '../app.constants.js';
 
 let ListActions = {
     /**

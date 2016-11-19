@@ -5,8 +5,8 @@ import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
-import ListStore from '../Lists/Lists.store.js';
-import ListActions from '../Lists/Lists.actions';
+import ListStore from '../../stores/Lists.store.js';
+import ListActions from '../../actions/Lists.actions';
 
 /**
  * This component will show a dialog to allow the user to enter a name for the new list

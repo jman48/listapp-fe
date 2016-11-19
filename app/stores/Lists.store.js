@@ -1,6 +1,6 @@
 import {EventEmitter} from 'fbemitter';
-import AppDispatcher from '../../app.dispatcher.js';
-import ListConstants from '../../app.constants';
+import AppDispatcher from '../app.dispatcher.js';
+import ListConstants from '../app.constants';
 
 
 const CHANGE_EVENT = 'change';

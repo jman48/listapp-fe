@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 import IconButton from 'material-ui/IconButton';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 
-import ListActions from '../Lists/Lists.actions';
+import ListActions from '../../actions/Lists.actions';
 
 /**
  * This component will display a single list
