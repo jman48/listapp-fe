@@ -1,8 +1,8 @@
 import style from './_List.style.scss';
 
 import React, {PropTypes} from 'react';
-import IconButton from 'material-ui/IconButton';
 import ContentClear from 'material-ui/svg-icons/content/clear';
+import {ListItem} from 'material-ui/List';
 
 import ListActions from '../../actions/Lists.actions';
 
@@ -16,13 +16,15 @@ export default class List extends React.Component {
     }
 
     render() {
+        const deleteButton = (
+            <ContentClear onClick={this.deleteList.bind(this)}/>
+        );
+
         return (
-            <li className="list">
-                {this.props.list.name}
-                <IconButton onClick={this.deleteList.bind(this)}>
-                    <ContentClear />
-                </IconButton>
-            </li>
+            <ListItem className="list-item"
+                      primaryText={this.props.list.name}
+                      rightIcon={deleteButton}>
+            </ListItem>
         )
     }
 }

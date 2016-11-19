@@ -1,12 +1,15 @@
 import style from './_Lists.style.scss';
 
 import React from 'react';
+
 import ListStore from '../../stores/Lists.store.js';
 import ListActions from '../../actions/Lists.actions';
-import List from '../List/List.component.jsx';
+import ListItem from '../List/List.component.jsx';
+import AddList from '../AddList/AddList.component.jsx';
+
+import {List} from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import AddList from '../AddList/AddList.component.jsx';
 
 /**
  * This component will retrieve and display a collection of lists
@@ -47,18 +50,20 @@ export default class Lists extends React.Component {
 
     render() {
         let renderedLists = this.state.lists.map((list) => {
-            return <List key={list.id} list={list}></List>
+            return <ListItem key={list._id} list={list}></ListItem>
         });
 
         return (
             <div className="lists">
-                <ul>
+                <List>
                     {renderedLists}
-                </ul>
+                </List>
 
                 <AddList open={this.state.dialogOpen} onClose={this.closeDialog.bind(this)}></AddList>
 
-                <FloatingActionButton onClick={this.openDialog.bind(this)}>
+                <FloatingActionButton
+                    className="add-button"
+                    onClick={this.openDialog.bind(this)}>
                     <ContentAdd/>
                 </FloatingActionButton>
             </div>
