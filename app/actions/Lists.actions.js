@@ -1,31 +1,35 @@
 import AppDispatcher from '../app.dispatcher.js';
-import ListConstants from '../app.constants.js';
+import Constants from '../app.constants.js';
+import axios from 'axios';
 
 let ListActions = {
     /**
      * Load all our lists from the web service
      */
     loadLists() {
-        //Fake web call for now with timeout
-        setTimeout(() => {
+        axios.get(`${Constants.HOST}/lists`).then((response) => {
             AppDispatcher.dispatch({
-                type: ListConstants.GET_LISTS,
-                lists: [{id: 1, name: "Test list"}]
+                type: Constants.GET_LISTS,
+                lists: response.data
             });
-        }, 1000);
+        });
     },
 
     addList(newList) {
-        AppDispatcher.dispatch({
-            type: ListConstants.ADD_LIST,
-            list: {name: newList}
+        axios.post(`${Constants.HOST}/lists`, {name: newList}).then((response) => {
+            AppDispatcher.dispatch({
+                type: Constants.ADD_LIST,
+                list: response.data
+            });
         });
     },
 
     deleteList(list) {
-        AppDispatcher.dispatch({
-            type: ListConstants.DELETE_LIST,
-            list: list
+        axios.delete(`${Constants.HOST}/lists/${list._id}`).then(() => {
+            AppDispatcher.dispatch({
+                type: Constants.DELETE_LIST,
+                list: list
+            });
         });
     }
 };
