@@ -2,7 +2,7 @@ import AppDispatcher from '../app.dispatcher.js';
 import Constants from '../app.constants.js';
 import axios from 'axios';
 
-let ListActions = {
+let ListsActions = {
     /**
      * Load all our lists from the web service
      */
@@ -34,4 +34,4 @@ let ListActions = {
     }
 };
 
-export default ListActions;
+export default ListsActions;

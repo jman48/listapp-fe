@@ -1,13 +1,13 @@
 import {EventEmitter} from 'fbemitter';
 import AppDispatcher from '../app.dispatcher.js';
-import ListConstants from '../app.constants';
+import Actions from '../app.constants';
 
 
 const CHANGE_EVENT = 'change';
 let __emitter = new EventEmitter();
 let lists = [];
 
-let ListStore = {
+let ListsStore = {
     getState() {
       return lists;
     },
@@ -17,17 +17,17 @@ let ListStore = {
     },
 };
 
-ListStore.dispatchToken = AppDispatcher.register((action) => {
+ListsStore.dispatchToken = AppDispatcher.register((action) => {
     switch (action.type) {
-        case ListConstants.GET_LISTS:
+        case Actions.GET_LISTS:
             lists = action.lists;
             __emitter.emit(CHANGE_EVENT);
             break;
-        case ListConstants.ADD_LIST:
+        case Actions.ADD_LIST:
             lists.push(action.list);
             __emitter.emit(CHANGE_EVENT);
             break;
-        case ListConstants.DELETE_LIST:
+        case Actions.DELETE_LIST:
             let listLocation = lists.indexOf(action.list);
             lists.splice(listLocation, 1);
             __emitter.emit(CHANGE_EVENT);
@@ -35,4 +35,4 @@ ListStore.dispatchToken = AppDispatcher.register((action) => {
     }
 });
 
-export default ListStore;
+export default ListsStore;
