@@ -18,7 +18,7 @@ let ListActions = {
     addList(newList) {
         AppDispatcher.dispatch({
             type: ListConstants.ADD_LIST,
-            list: newList
+            list: {name: newList}
         });
     }
 };
