@@ -4,8 +4,9 @@ import React from 'react';
 
 import ItemStore from '../../stores/Items.store.js';
 import ItemActions from '../../actions/Items.actions';
+import Item from '../Item/Item.component.jsx';
 
-import {List, ListItem} from 'material-ui/List';
+import {List} from 'material-ui/List';
 
 export default class Items extends React.Component {
 
@@ -34,7 +35,7 @@ export default class Items extends React.Component {
 
     render() {
         let items = this.state.itemList.items.map((item) => {
-            return <ListItem key={item.name} primaryText={item.name}></ListItem>
+            return <Item key={item.name} item={item}></Item>
         });
 
         return (
