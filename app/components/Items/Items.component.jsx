@@ -35,7 +35,7 @@ export default class Items extends React.Component {
 
     render() {
         let items = this.state.itemList.items.map((item) => {
-            return <Item key={item.name} item={item}></Item>
+            return <Item key={item._id} item={item} list={this.state.itemList._id}></Item>
         });
 
         return (

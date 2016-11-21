@@ -10,7 +10,7 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 export default class Item extends React.Component {
 
     deleteItem() {
-        ItemActions.deleteItem(this.props.item._id);
+        ItemActions.deleteItem(this.props.list, this.props.item._id);
     }
 
     render() {
@@ -27,5 +27,6 @@ export default class Item extends React.Component {
 }
 
 Item.propType = {
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
+    list: PropTypes.string.isRequired
 };
