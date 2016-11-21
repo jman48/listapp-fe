@@ -1,6 +1,6 @@
 ##List App Web
 
-A react.js web application to handle creating, deleting lists and items that are synced with the cloud.
+A react.js web application to handle loading, creating and deleting lists and items that are synced with the cloud.
 
 ### Installing
 To run this web application, first clone the repository. Then from the root directory of the application
