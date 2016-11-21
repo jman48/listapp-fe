@@ -5,7 +5,7 @@ import React from 'react';
 import ListStore from '../../stores/Lists.store.js';
 import ListActions from '../../actions/Lists.actions';
 import List from '../List/List.component.jsx';
-import AddList from '../AddList/AddList.component.jsx';
+import AddDialog from '../AddDialog/AddDialog.component.jsx';
 
 //Import as MaterialList so we do not clash with our custom List component
 import {List as MaterialList} from 'material-ui/List';
@@ -48,9 +48,14 @@ export default class Lists extends React.Component {
         this.setState({addDialogOpen: false});
     }
 
+    onAdd(newList) {
+        ListActions.addList(newList);
+        this.closeDialog();
+    }
+
     render() {
         let renderedLists = this.state.lists.map((list) => {
-            return <List key={list._id} list={list}></List>
+            return <List key={list._id} list={list}/>
         });
 
         return (
@@ -59,12 +64,16 @@ export default class Lists extends React.Component {
                     {renderedLists}
                 </MaterialList>
 
-                <AddList open={this.state.addDialogOpen} onClose={this.closeDialog.bind(this)}></AddList>
+                <AddDialog
+                    open={this.state.addDialogOpen}
+                    onClose={this.closeDialog.bind(this)}
+                    onAdd={this.onAdd.bind(this)}
+                    title="Add List"/>
 
                 <FloatingActionButton
                     className="add-button"
                     onClick={this.openDialog.bind(this)}>
-                    <ContentAdd/>
+                    <ContentAdd />
                 </FloatingActionButton>
             </div>
         )
