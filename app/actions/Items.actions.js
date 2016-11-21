@@ -23,6 +23,15 @@ let ItemsActions = {
                 item: itemId
             });
         });
+    },
+
+    addItem(listId, newItem) {
+        axios.post(`${Constants.HOST}/lists/${listId}/items/`, {name: newItem}).then((response) => {
+            AppDispatcher.dispatch({
+                type: Constants.ADD_ITEM,
+                item: response.data
+            });
+        });
     }
 };
 

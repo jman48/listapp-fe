@@ -36,6 +36,10 @@ ItemsStore.dispatchToken = AppDispatcher.register((action) => {
             }
             __emitter.emit(CHANGE_EVENT);
             break;
+        case Actions.ADD_ITEM:
+            list.items.push(action.item);
+            __emitter.emit(CHANGE_EVENT);
+            break;
     }
 });
 
