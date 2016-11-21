@@ -13,6 +13,16 @@ let ItemsActions = {
                 list: response.data
             });
         });
+    },
+
+    deleteItem(listId, itemId) {
+        let url = `${Constants.HOST}/lists/${listId}/items/${itemId}`;
+        axios.delete(url).then(() => {
+            AppDispatcher.dispatch({
+                type: Constants.DELETE_ITEM,
+                item: itemId
+            });
+        });
     }
 };
 

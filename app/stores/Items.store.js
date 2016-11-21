@@ -12,7 +12,7 @@ let list = {items: []}; //Initialise with an empty list
  */
 let ItemsStore = {
     getState() {
-      return list;
+        return list;
     },
 
     addListener: (callback) => {
@@ -24,6 +24,16 @@ ItemsStore.dispatchToken = AppDispatcher.register((action) => {
     switch (action.type) {
         case Actions.GET_ITEMS:
             list = action.list;
+            __emitter.emit(CHANGE_EVENT);
+            break;
+        case Actions.DELETE_ITEM:
+            //Find item by id and remove it
+            for (let i = 0; i < list.items.length; i++) {
+                if (list.items[i]._id == action.item) {
+                    list.items.splice(i, 1);
+                    break;
+                }
+            }
             __emitter.emit(CHANGE_EVENT);
             break;
     }
